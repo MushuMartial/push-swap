@@ -6,7 +6,7 @@
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 16:52:14 by tmartial          #+#    #+#             */
-/*   Updated: 2021/11/18 15:28:07 by tmartial         ###   ########.fr       */
+/*   Updated: 2021/11/19 14:01:34 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,10 @@ int check_arg(int argc, char **args)
 			while (args[j][i])
 			{
 				if (!(args[j][i] >= '0' && args[j][i] <= '9') && (args[j][i] != '-'))
+				{
+					printf("Error\n");
 					return (0);
+				}
 				i++;
 			}
 			j++;
@@ -103,4 +106,69 @@ int vide_value(int *tab_a, int tab_len)
 		i++;
 	}
 	return (ret);
+}
+
+void swap_pos(int *tab, int pos)
+{
+	int save;
+	
+	save = tab[pos];
+	tab[pos] = tab[pos + 1];
+	tab[pos + 1] = save;
+}
+
+void move_back(int *tab, int len)
+{
+	int i;
+
+	i = len;
+	while (i >= 0)
+	{
+		swap_pos(tab, i);
+		i--;
+	}
+	
+}
+
+void move_front(int *tab, int len)
+{
+	int i;
+	
+	i = 0;
+	while (len >= i)
+	{
+		swap_pos(tab, i);
+		i++;
+	}
+	
+}
+
+int check_order(int *tab, int len)
+{
+	int i;
+
+	i = 0;
+	while (i < len - 1)
+	{
+		if (tab[i] > tab[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int num_order(int *tab, int vide, int len, int pos)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (tab[i] != vide && i < len)
+	{
+		if (tab[pos] > tab[i])
+			j++;
+		i++;
+	}
+	return (j);
 }
