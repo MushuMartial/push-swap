@@ -6,52 +6,66 @@
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 16:52:04 by tmartial          #+#    #+#             */
-/*   Updated: 2021/11/18 16:21:41 by tmartial         ###   ########.fr       */
+/*   Updated: 2021/11/25 18:22:50 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 //#include "push_swap_mv.c"
 //#include "push_swap_utils.c"
+//#include "algo.c"
+//#include "algo2.c"
+//#include "fill.c"
+//#include "stack_utils.c"
+//#include "checkers.c"
 
-void chose_algo(int *tab_a, int *tab_b, int len, int vide)
+
+void push_swap(int argc, char **argv)
 {
-	if (len == 1)
-	{
-		printf("tab a: \n");
-		print_tab(tab_a, len);
-	}
+	int *A;
+	int *B;
+	int len;
+	
+	len = mal_len(argc, argv);
+	A = malloc(sizeof(int) * len);
+	B = malloc(sizeof(int) * len);
+	if (A == NULL || B == NULL)
+		return ;
+	fill_tab(A, argv, argc);
+	if (check_double(A, len) == 1)
+		return ;
+	fill_stacks(A, B, len);
+	
+	if (len == 2)
+		algo2(A, 0);
+	else if (len == 3)
+		algo3(A, 0);
+	else if (len == 4)
+		algo4(A, B, 0);
+	else if (len == 5)
+		algo5(A, B, 0);
 	
 }
 
-
-void push_swap(int tab_len, char **args)
-{
-	int *tab_a;
-	int *tab_b;
-	int i;
-	int vide;
-	
-	i = -1;
-	tab_a = malloc(sizeof(int) * tab_len);
-	tab_b = malloc(sizeof(int) * tab_len);
-	while (tab_len > ++i)
-		tab_a[i] = ft_atoi(args[i + 1]);
-	i = -1;
-	vide = vide_value(tab_a, tab_len);
-	while (tab_len > ++i)
-		tab_b[i] = vide;
-	
-	printf("tab a: \n");
-	print_tab(tab_a, tab_len);
-	//printf("tab b: \n");
-	//print_tab(tab_b, tab_len);
-	// aout 0 1 2  haut de stack = 0 index 0 = top of stack
-}
 
 int main(int argc, char **argv)
 {
-	if (check_arg(argc, argv) == 1)
-		push_swap(argc - 1, argv);
+	int i;
+	
+	i = 1;
+	while (i < argc)
+	{
+		if (check_arg(argv[i]) == 1)
+		{
+			printf("Error\n");
+			return (0);
+		}
+		if (check_int(argv[i++]) == 1)
+		{
+			printf("Error\n");
+			return (0);
+		}
+	}
+	push_swap(argc, argv);
 	return (0);
 }

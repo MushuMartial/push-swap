@@ -1,36 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 16:52:14 by tmartial          #+#    #+#             */
-/*   Updated: 2021/11/25 18:01:45 by tmartial         ###   ########.fr       */
+/*   Created: 2021/11/25 18:23:17 by tmartial          #+#    #+#             */
+/*   Updated: 2021/11/25 18:23:20 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void print_tab(int *tab, int len)
+void swap_pos(int *tab, int pos)
 {
-	int i;
- 
-	i = 0;
-	while (len > i)
-	{
-		printf("tab index[%d] = %d\n", i, tab[i]);
-		i++;
-	}
-
+	int save;
+	
+	save = tab[pos];
+	tab[pos] = tab[pos + 1];
+	tab[pos + 1] = save;
 }
 
-int	ft_strlen(const char *s)
+void move_back(int *tab, int len)
 {
-	int	len;
+	int i;
 
-	len = 0;
-	while (s[len] != '\0')
-		len++;
-	return (len);
+	i = len;
+	while (i >= 0)
+	{
+		swap_pos(tab, i);
+		i--;
+	}
+	
+}
+
+void move_front(int *tab, int len)
+{
+	int i;
+	
+	i = 0;
+	while (len >= i)
+	{
+		swap_pos(tab, i);
+		i++;
+	}
+	
 }

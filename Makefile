@@ -1,6 +1,6 @@
-NAME = pushswap
+NAME = push_swap
 
-SRCS = push_swap_mv.c push_swap_utils.c push_swap.c algo.c algo2.c
+SRCS = push_swap_mv.c push_swap_utils.c push_swap.c algo.c algo2.c fill.c stack_utils.c checkers.c
 
 OBJS = ${SRCS:.c=.o}
 
