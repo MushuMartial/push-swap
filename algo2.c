@@ -12,28 +12,9 @@
 
 #include "push_swap.h"
 
-void radix(int *A, int *B, int len, int vide)
+void radix(int *A, int *B, int len)
 {
     int i;
-
-    i = 0;
-    while (i < len)
-    {
-        B[i] = num_order(A, vide, len, i) + 1;
-        i++;
-    }
-    i = 0;
-    while (i < len)
-    {
-        A[i] = convert_base2(B[i]);
-        i++;
-    }
-    i = 0;
-    while (i < len)
-    {
-        B[i] = 0;
-        i++;
-    }
 }
 
 int convert_base2(int num)

@@ -6,7 +6,7 @@
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 16:52:31 by tmartial          #+#    #+#             */
-/*   Updated: 2021/11/25 18:03:20 by tmartial         ###   ########.fr       */
+/*   Updated: 2021/11/25 19:10:04 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void algo4(int *tab_a, int *tab_b, int vide);
 void algo5(int *tab_a, int *tab_b, int vide);
 
 /* Algo 2 */
-void radix(int *A, int *B, int len, int vide);
+void radix(int *A, int *B, int len);
 int convert_base2(int num);
 
 /* Stack Moves */

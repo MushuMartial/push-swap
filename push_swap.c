@@ -6,7 +6,7 @@
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 16:52:04 by tmartial          #+#    #+#             */
-/*   Updated: 2021/11/25 18:22:50 by tmartial         ###   ########.fr       */
+/*   Updated: 2021/11/25 19:10:14 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 //#include "algo2.c"
 //#include "fill.c"
 //#include "stack_utils.c"
-//#include "checkers.c"
-
+//#include "checker.c"
 
 void push_swap(int argc, char **argv)
 {
@@ -33,7 +32,12 @@ void push_swap(int argc, char **argv)
 		return ;
 	fill_tab(A, argv, argc);
 	if (check_double(A, len) == 1)
+	{
+		free(A);
+		free(B);
+		printf("Error\n");
 		return ;
+	}
 	fill_stacks(A, B, len);
 	
 	if (len == 2)
@@ -44,7 +48,12 @@ void push_swap(int argc, char **argv)
 		algo4(A, B, 0);
 	else if (len == 5)
 		algo5(A, B, 0);
+	else if (len > 5)
+		radix(A, B, len);
 	
+	free(A);
+	free(B);
+	return;
 }
 
 
