@@ -6,45 +6,21 @@
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 18:23:26 by tmartial          #+#    #+#             */
-/*   Updated: 2021/11/25 18:23:29 by tmartial         ###   ########.fr       */
+/*   Updated: 2021/11/29 15:03:32 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(const char *str, int *pos)
+int	check_arg(char *args)
 {
-	int	signe;
-	int	num;
-	int i;
+	int	i;
 
-	signe = 1;
-	num = 0;
-	i = -1;
-	while (str[++i] == 32)
-		(*pos)++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i++] == '-')
-			signe *= -1;
-		(*pos)++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		num = (num * 10) + (str[i++] - '0');
-		(*pos)++;
-	}
-	return (num * signe);
-}
-
-int check_arg(char *args)
-{
-	int i;
-	 
 	i = -1;
 	while (args[++i] != '\0')
 	{
-		if ((args[i] >= '0' && args[i] <= '9') || args[i] == '-' || args[i] == ' ' || args[i] == '+')
+		if ((args[i] >= '0' && args[i] <= '9') || args[i] == '-'
+			|| args[i] == ' ' || args[i] == '+')
 		{
 			if (args[i] == '-' || args[i] == '+')
 			{
@@ -63,9 +39,9 @@ int check_arg(char *args)
 	return (0);
 }
 
-int check_order(int *tab, int len)
+int	check_order(int *tab, int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < len - 1)
@@ -77,14 +53,14 @@ int check_order(int *tab, int len)
 	return (1);
 }
 
-int num_order(int *tab, int vide, int len, int pos)
+int	num_order(int *tab, int len, int pos)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-	while (tab[i] != vide && i < len)
+	while (i < len)
 	{
 		if (tab[pos] > tab[i])
 			j++;
@@ -95,9 +71,9 @@ int num_order(int *tab, int vide, int len, int pos)
 
 int	check_int(char *str)
 {
+	int				i;
+	int				signe;
 	long long int	num;
-	int i;
-	int signe;
 
 	i = 0;
 	signe = 1;
@@ -121,15 +97,15 @@ int	check_int(char *str)
 	return (0);
 }
 
-int check_double(int *A, int len)
+int	check_double(int *A, int len)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
-	i = 0;
 	j = 0;
 	while (j < len)
 	{
+		i = 0;
 		while (i < len)
 		{
 			if (A[j] == A[i] && i != j)

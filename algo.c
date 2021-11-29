@@ -5,71 +5,73 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 11:46:33 by tmartial          #+#    #+#             */
-/*   Updated: 2021/11/22 11:46:33 by tmartial         ###   ########.fr       */
+/*   Created: 2021/11/29 12:45:57 by tmartial          #+#    #+#             */
+/*   Updated: 2021/11/29 13:45:30 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void algo2(int *tab, int vide)
+void	algo2(int *tab)
 {
-    if (tab[0] > tab[1])
-        sa(tab, 2, vide);
+	if (tab[0] > tab[1])
+		sa(tab, 2);
 }
 
-void algo3(int *tab, int vide)
+void	algo3(int *tab)
 {
-    if (tab[1] > tab[0] && tab[1] > tab[2])
-    {
-        rra(tab, 3, vide);
-        algo2(tab, vide);
-    }
-    else if (tab[0] > tab[1] && tab[0] > tab[2])
-    {
-        ra(tab, 3, vide);
-        algo2(tab, vide);
-    }
-    else
-        algo2(tab, vide);
+	if (tab[1] > tab[0] && tab[1] > tab[2])
+	{
+		rra(tab, 3);
+		algo2(tab);
+	}
+	else if (tab[0] > tab[1] && tab[0] > tab[2])
+	{
+		ra(tab, 3);
+		algo2(tab);
+	}
+	else
+		algo2(tab);
 }
 
-void algo4(int *tab_a, int *tab_b, int vide)
+void	algo4(int *a, int *b)
 {
-    if (num_order(tab_a, vide, 4, 0) == 2)
-        sa(tab_a, 4, vide);
-    if (check_order(tab_a, 4) == 0)  
-    {
-        pb(tab_a, tab_b, 4, vide);
-        algo3(tab_a, vide);
-        pa(tab_a, tab_b, 4, vide);
-        if (check_order(tab_a, 4) == 0)
-        {
-            if (tab_a[0] > tab_a[3])
-                ra(tab_a, 4, vide);
-            else if (tab_a[0] > tab_a[1])
-                sa(tab_a, 4, vide);
-        }
-    }
+	if (num_order(a, 4, 0) == 2)
+		sa(a, 4);
+	if (check_order(a, 4) == 0)
+	{
+		pb(a, b, 4);
+		algo3(a);
+		pa(a, b, 4);
+		if (check_order(a, 4) == 0)
+		{
+			if (a[0] > a[3])
+				ra(a, 4);
+			else if (a[0] > a[1])
+				sa(a, 4);
+		}
+	}
 }
 
-void algo5(int *tab_a, int *tab_b, int vide)
+void	algo5(int *a, int *b)
 {
-    if (num_order(tab_a, vide, 5, 0) == 2 || num_order(tab_a, vide, 5, 0) == 3)
-    {
-        if (num_order(tab_a, vide, 5, 1) == 2 || num_order(tab_a, vide, 5, 1) == 3 )
-            rra(tab_a, 5, vide);
-        else
-            sa(tab_a, 5, vide);
-    }
-    pb(tab_a, tab_b, 5, vide);
-    algo4(tab_a, tab_b, vide);
-    pa(tab_a, tab_b, 5, vide);
-    if (check_order(tab_a, 5) == 0)  
-    {
-        if (tab_a[0] > tab_a[4])
-            ra(tab_a, 5, vide);
-        else if (tab_a[0] > tab_a[1])
-            sa(tab_a, 5, vide);
-    }
+	if (check_order(a, 5) == 1)
+		return ;
+	if (num_order(a, 5, 0) == 2 || num_order(a, 5, 0) == 3)
+	{
+		if (num_order(a, 5, 1) == 2 || num_order(a, 5, 1) == 3)
+			rra(a, 5);
+		else
+			sa(a, 5);
+	}
+	pb(a, b, 5);
+	algo4(a, b);
+	pa(a, b, 5);
+	if (check_order(a, 5) == 0)
+	{
+		if (a[0] > a[4])
+			ra(a, 5);
+		else if (a[0] > a[1])
+			sa(a, 5);
+	}
 }
