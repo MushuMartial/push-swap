@@ -6,7 +6,7 @@
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 19:19:11 by tmartial          #+#    #+#             */
-/*   Updated: 2021/12/01 13:45:32 by tmartial         ###   ########.fr       */
+/*   Updated: 2021/12/01 16:40:01 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ char	*get_next_line(int fd)
 	char		*line;
 	int			ret;
 
-	if (4 < 1 || fd < 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || read(fd, 0, 0) < 0)
 		return (NULL);
 	buffer = malloc(sizeof(char) * 4 + 1);
 	line = ft_strdup("");
@@ -108,4 +108,14 @@ char	*get_next_line(int fd)
 		ret = fill_line(&line, &save, buffer, ret);
 	}
 	return (free_all(line, &save, buffer, ret));
+}
+
+void	free_stacks_bonus(int *a, int *b, char *line)
+{
+	if (a != NULL)
+		free(a);
+	if (b != NULL)
+		free(b);
+	if (line != NULL)
+		free(line);
 }

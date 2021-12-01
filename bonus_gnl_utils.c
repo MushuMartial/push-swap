@@ -6,11 +6,34 @@
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/15 19:19:14 by tmartial          #+#    #+#             */
-/*   Updated: 2021/12/01 13:45:27 by tmartial         ###   ########.fr       */
+/*   Updated: 2021/12/01 14:54:14 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bonus.h"
+
+int	ft_strncmp(char *s1, char *s2, int n)
+{
+	unsigned char	*ptr_s1;
+	unsigned char	*ptr_s2;
+	int				i;
+
+	ptr_s1 = (unsigned char *)s1;
+	ptr_s2 = (unsigned char *)s2;
+	i = 0;
+	while (n > i && (ptr_s1[i] || ptr_s2[i]))
+	{
+		if (ptr_s1[i] != ptr_s2[i])
+		{
+			if (ptr_s1[i] > ptr_s2[i])
+				return (1);
+			else
+				return (-1);
+		}
+		i++;
+	}
+	return (0);
+}
 
 char	*ft_strjoin(char *s1, char *s2)
 {

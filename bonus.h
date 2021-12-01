@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bonus.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/12/01 13:59:18 by tmartial          #+#    #+#             */
+/*   Updated: 2021/12/01 16:36:25 by tmartial         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BONUS_H
 # define BONUS_H
 
@@ -42,8 +54,8 @@ void	rrb(int *tab, int len);
 void	rrr(int *a, int *b, int len);
 
 /* Bonus */
-int		check_line(char *line, int *A, int *B, int len);
-int		check_line2(char *line, int *A, int *B, int len);
+int		check_line(char *line, int *a, int *b, int len);
+int		check_line2(char *line, int *a, int *b, int len);
 void	checker(int argc, char **argv);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strdup(char *s1);
@@ -53,5 +65,8 @@ char	*free_all(char *line, char **save, char *buffer, int ret);
 int		fill_line(char **line, char **save, char *buffer, int ret);
 int		check_save(char **line, char **save);
 char	*get_next_line(int fd);
+void	read_input(char *line, int *a, int *b, int len);
+int		ft_strncmp(char *s1, char *s2, int n);
+void	free_stacks_bonus(int *a, int *b, char *line); //in gnl.c
 
 #endif

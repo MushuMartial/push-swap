@@ -4,7 +4,7 @@ NAME2 = checker
 
 SRCS1 = push_mv.c push_mv2.c push_mv3.c push_swap_utils.c push_swap.c algo.c algo2.c fill.c stack_utils.c checkers.c
 
-SRCS2 = bonus_mv.c bonus_mv2.c bonus_mv3.c push_swap_utils.c bonus_checker.c bonus_gnl.c bonus_gnl_utils.c checkers.c fill.c stack_utils.c 
+SRCS2 = bonus_mv.c bonus_mv2.c bonus_mv3.c push_swap_utils.c bonus_main.c bonus_gnl.c bonus_gnl_utils.c checkers.c fill.c stack_utils.c 
 
 OBJS1 = $(SRCS1:.c=.o)
 
