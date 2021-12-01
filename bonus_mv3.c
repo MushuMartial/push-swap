@@ -1,54 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   bonus_mv3.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 18:23:17 by tmartial          #+#    #+#             */
-/*   Updated: 2021/12/01 13:13:32 by tmartial         ###   ########.fr       */
+/*   Created: 2021/12/01 10:22:00 by tmartial          #+#    #+#             */
+/*   Updated: 2021/12/01 13:45:41 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "bonus.h"
 
-void	swap_pos(int *tab, int pos)
-{
-	int	save;
-
-	save = tab[pos];
-	tab[pos] = tab[pos + 1];
-	tab[pos + 1] = save;
-}
-
-void	move_back(int *tab, int len)
-{
-	int	i;
-
-	i = len;
-	while (i >= 0)
-	{
-		swap_pos(tab, i);
-		i--;
-	}
-}
-
-void	move_front(int *tab, int len)
+void	rrr(int *a, int *b, int len)
 {
 	int	i;
 
 	i = 0;
-	while (len >= i)
-	{
-		swap_pos(tab, i);
+	while (a[i] != 0 && i < len)
 		i++;
-	}	
-}
-
-void	free_stacks(int *a, int *b)
-{
-	if (a != NULL)
-		free(a);
-	if (b != NULL)
-		free(b);
+	move_back(a, i - 2);
+	i = 0;
+	while (b[i] != 0 && i < len)
+		i++;
+	move_back(b, i - 2);
 }

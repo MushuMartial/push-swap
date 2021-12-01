@@ -6,30 +6,11 @@
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 12:45:51 by tmartial          #+#    #+#             */
-/*   Updated: 2021/11/29 13:52:45 by tmartial         ###   ########.fr       */
+/*   Updated: 2021/12/01 13:51:49 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	convert_base2(int num)
-{
-	int	mul;
-	int	place;
-	int	bin ;
-
-	mul = 0;
-	place = 1;
-	bin = 0;
-	while (num)
-	{
-		mul = num % 2;
-		num = num / 2;
-		bin = bin + (mul * place);
-		place *= 10;
-	}
-	return (bin);
-}
 
 void	big_sort(int *a, int *b, int len)
 {

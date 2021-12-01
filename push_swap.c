@@ -6,24 +6,11 @@
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 16:52:04 by tmartial          #+#    #+#             */
-/*   Updated: 2021/11/29 14:39:50 by tmartial         ###   ########.fr       */
+/*   Updated: 2021/12/01 13:13:38 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void print_tab(int *tab, int len)
-{
-	int i;
- 
-	i = 0;
-	while (len > i)
-	{
-		printf("tab index[%d] = %d\n", i, tab[i]);
-		i++;
-	}
-
-}
 
 void	push_swap(int argc, char **argv)
 {
@@ -35,11 +22,11 @@ void	push_swap(int argc, char **argv)
 	a = malloc(sizeof(int) * len);
 	b = malloc(sizeof(int) * len);
 	if (a == NULL || b == NULL)
-		return ;
+		return (free_stacks(a, b));
 	fill_tab(a, argv, argc);
 	if (check_double(a, len) == 1)
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		return (free_stacks(a, b));
 	}
 	fill_stacks(a, b, len);
@@ -64,14 +51,6 @@ void	sort_small(int *a, int *b, int len)
 		algo5(a, b);
 }
 
-void	free_stacks(int *a, int *b)
-{
-	if (a != NULL)
-		free(a);
-	if (b != NULL)
-		free(b);
-}
-
 int	main(int argc, char **argv)
 {
 	int	i;
@@ -81,16 +60,15 @@ int	main(int argc, char **argv)
 	{
 		if (check_arg(argv[i]) == 1)
 		{
-			write(1, "Error\n", 6);
+			write(2, "Error\n", 6);
 			return (0);
 		}
 		if (check_int(argv[i++]) == 1)
 		{
-			write(1, "Error\n", 6);
+			write(2, "Error\n", 6);
 			return (0);
 		}
 	}
 	if (argc > 1)
 		push_swap(argc, argv);
-	return (0);
 }

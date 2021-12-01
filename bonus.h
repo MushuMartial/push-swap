@@ -1,27 +1,13 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/04 16:52:31 by tmartial          #+#    #+#             */
-/*   Updated: 2021/12/01 13:52:13 by tmartial         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef BONUS_H
+# define BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
 
 /* Utils */
-void	push_swap(int argc, char **argv);
 int		ft_strlen(const char *s);
 int		ft_atoi(const char *str, int *pos); //Atoi ds fill_tab
-void	sort_small(int *a, int *b, int len);
 
 /* Fill */
 int		mal_len(int argc, char **argv); //Len of args pour malloc
@@ -42,16 +28,6 @@ void	move_back(int *tab, int len); //Deplace la stack de 1 to free [0]
 void	move_front(int *tab, int len); //Deplace la stack de 1 to free [fin]
 void	free_stacks(int *a, int *b);
 
-/* Algo */
-void	algo2(int *tab);
-void	algo3(int *tab);
-void	algo4(int *a, int *b);
-void	algo5(int *a, int *b);
-
-/* Algo 2 */
-void	radix(int *a, int *b, int len);
-void	big_sort(int *a, int *b, int len);
-
 /* Stack Moves */
 void	sa(int *tab, int len);
 void	sb(int *tab, int len);
@@ -64,5 +40,18 @@ void	rr(int *a, int *b, int len);
 void	rra(int *tab, int len); //last becomes first ->
 void	rrb(int *tab, int len);
 void	rrr(int *a, int *b, int len);
+
+/* Bonus */
+int		check_line(char *line, int *A, int *B, int len);
+int		check_line2(char *line, int *A, int *B, int len);
+void	checker(int argc, char **argv);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strdup(char *s1);
+char	*ft_substr(char *s, int start, int len);
+int		pos_n(char *buffer);
+char	*free_all(char *line, char **save, char *buffer, int ret);
+int		fill_line(char **line, char **save, char *buffer, int ret);
+int		check_save(char **line, char **save);
+char	*get_next_line(int fd);
 
 #endif
