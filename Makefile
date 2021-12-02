@@ -15,11 +15,11 @@ RM		= rm -f
 
 CFLAGS = -Wall -Wextra -Werror
 
-$(NAME1): 
-	$(CC) $(CFLAGS) $(SRCS1)  -o $(NAME1)
+$(NAME1): $(OBJS1)
+	$(CC) $(CFLAGS) $(OBJS1)  -o $(NAME1)
 
-$(NAME2):
-	$(CC) $(CFLAGS) $(SRCS2)  -o $(NAME2)
+$(NAME2): $(OBJS2)
+	$(CC) $(CFLAGS) $(OBJS2)  -o $(NAME2)
 
 all:	$(NAME1) $(NAME2)
 

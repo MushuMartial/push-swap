@@ -6,7 +6,7 @@
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 16:52:31 by tmartial          #+#    #+#             */
-/*   Updated: 2021/12/01 13:52:13 by tmartial         ###   ########.fr       */
+/*   Updated: 2021/12/02 16:34:25 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	push_swap(int argc, char **argv);
 int		ft_strlen(const char *s);
 int		ft_atoi(const char *str, int *pos); //Atoi ds fill_tab
 void	sort_small(int *a, int *b, int len);
+int		check_empty(char *args);
 
 /* Fill */
 int		mal_len(int argc, char **argv); //Len of args pour malloc

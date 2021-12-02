@@ -6,7 +6,7 @@
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 15:31:19 by tmartial          #+#    #+#             */
-/*   Updated: 2021/12/01 17:40:22 by tmartial         ###   ########.fr       */
+/*   Updated: 2021/12/02 16:35:16 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@ int	main(int argc, char **argv)
 			write(2, "Error\n", 6);
 			exit(0);
 		}
-		else if (check_int(argv[i++]) == 1)
+		else if (check_int(argv[i]) == 1)
+		{
+			write(2, "Error\n", 6);
+			exit(0);
+		}
+		else if (check_empty(argv[i++]) == 1)
 		{
 			write(2, "Error\n", 6);
 			exit(0);

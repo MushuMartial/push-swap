@@ -6,7 +6,7 @@
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 13:59:18 by tmartial          #+#    #+#             */
-/*   Updated: 2021/12/01 16:36:25 by tmartial         ###   ########.fr       */
+/*   Updated: 2021/12/02 16:34:37 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 /* Utils */
 int		ft_strlen(const char *s);
 int		ft_atoi(const char *str, int *pos); //Atoi ds fill_tab
+int		check_empty(char *args);
 
 /* Fill */
 int		mal_len(int argc, char **argv); //Len of args pour malloc

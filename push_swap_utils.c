@@ -6,7 +6,7 @@
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 16:52:14 by tmartial          #+#    #+#             */
-/*   Updated: 2021/11/29 13:37:31 by tmartial         ###   ########.fr       */
+/*   Updated: 2021/12/02 16:39:32 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,19 @@ int	ft_atoi(const char *str, int *pos)
 		(*pos)++;
 	}
 	return (num * signe);
+}
+
+int	check_empty(char *args)
+{
+	int	i;
+
+	i = 0;
+	if (ft_strlen(args) == 0)
+		return (1);
+	while (args[i] != '\0')
+	{
+		if (args[i++] != ' ')
+			return (0);
+	}
+	return (1);
 }

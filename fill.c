@@ -6,7 +6,7 @@
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 18:23:07 by tmartial          #+#    #+#             */
-/*   Updated: 2021/12/01 13:51:58 by tmartial         ###   ########.fr       */
+/*   Updated: 2021/12/02 10:33:03 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,17 +87,17 @@ int	convert_base2(int num)
 {
 	int	mul;
 	int	place;
-	int	bin ;
+	int	ret;
 
 	mul = 0;
 	place = 1;
-	bin = 0;
+	ret = 0;
 	while (num)
 	{
 		mul = num % 2;
 		num = num / 2;
-		bin = bin + (mul * place);
+		ret = ret + (mul * place);
 		place *= 10;
 	}
-	return (bin);
+	return (ret);
 }
