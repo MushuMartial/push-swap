@@ -6,7 +6,7 @@
 /*   By: tmartial <tmartial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 18:23:07 by tmartial          #+#    #+#             */
-/*   Updated: 2021/12/02 10:33:03 by tmartial         ###   ########.fr       */
+/*   Updated: 2021/12/04 16:20:22 by tmartial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	mal_len(int argc, char **argv)
 		i = 0;
 		while (argv[j][i] != '\0')
 		{
+			if (i == 0 && argv[j][i] == ' ')
+				len--;
 			if (argv[j][i++] == ' ' && ((argv[j][i] >= '0' && argv[j][i] <= '9')
 			|| argv[j][i] == '-' || argv[j][i] == '+'))
 				len++;
